@@ -10,8 +10,11 @@ const app = express();
 
 app.use(cors({
   origin: "https://naisarg-patel.github.io",
-  methods: ["GET", "POST"],
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+app.options("*", cors());
 
 app.use(express.json());
 
