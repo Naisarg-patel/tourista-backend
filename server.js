@@ -7,10 +7,17 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
 app.use(cors({
-  origin: "*"
+  origin: "https://naisarg-patel.github.io",
+  methods: ["GET", "POST"],
 }));
+
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 
 app.use("/api/auth", require("./routes/authRoutes"));
 
